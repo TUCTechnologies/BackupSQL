@@ -17,7 +17,7 @@ ForEach($Database in $Databases)
   Remove-Item "$BackupDir\$Database.$Now.$BackupExt"
 
   # Delete old backups of the database
-  $backupFiles = Get-ChildItem -Path "$BackupDir\$Database*.7z" | Sort-Object name -Descending
+  $backupFiles = Get-ChildItem -Path "$BackupDir\$Database.*.7z" | Sort-Object name -Descending
   $backupsToKeep = 5
 
   ForEach($backupFile in $backupFiles) {
